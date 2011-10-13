@@ -1,0 +1,125 @@
+<script type="text/javascript">
+  $(document).ready( function(){
+    Initialize();
+    
+    $("div.about").click({ 
+      // Hide the other divs
+      // Load the about div
+       });
+    $("div.home").click({ 
+      // Hide other divs
+      // Load the home div
+      });
+    $("div.projects").click({ 
+      // Hide other divs
+      // Load the projects div
+      });
+    $("div.employees").click({ 
+      // Hide other divs
+      // Load the projects div
+      });
+      
+    
+    });
+    
+  function Initialize() {
+    Home();
+    };
+    
+  function Header(){
+    
+    };
+    
+  function Projects(){
+    $("div.about").hide();
+    $("div.home").hide();
+    $("div.employees").hide();
+    
+    
+    };
+    
+  function About(){
+    $("div.home").hide();
+    $("div.projects").hide();
+    $("div.employees").hide();
+    
+    
+    };
+  
+  function Employees(){
+    $("div.about").hide();
+    $("div.projects").hide();
+    $("div.home").hide();
+    
+    
+    };
+    
+  function Home(){
+    $("div.about").hide();
+    $("div.projects").hide();
+    $("div.employees").hide();
+    
+    $("li.cloud_employees").hide();
+    $("li.ml_projects").hide();
+    $("li.moon_about").hide();
+    $("li.ds_home").hide();
+    
+    $("li.home").animate({opacity:0.6});
+    $("li.employees").animate({opacity:0.6});
+    $("li.about").animate({opacity:0.6});
+    $("li.projects").animate({opacity:0.6});
+    
+    $("li.projects").mouseover( function(){
+      $("li.moon_about").hide("slow");
+      $("li.cloud_employees").hide("slow");
+      $("li.ds_home").hide("slow");
+      
+      $("li.ml_projects").show("slow");
+      $("li.projects").animate({opacity:1});
+      });
+    $("li.projects").mouseleave( function(){
+      $("li.ml_projects").hide("slow");
+      $("li.projects").animate({opacity:0.6});
+      });
+    
+    $("li.about").mouseover( function(){
+      $("li.ml_projects").hide("slow");
+      $("li.cloud_employees").hide("slow");
+      $("li.ds_home").hide("slow");
+      
+      $("li.moon_about").show("slow");
+      $("li.about").animate({opacity:1});
+      });
+    $("li.about").mouseleave( function(){
+      $("li.moon_about").hide("slow");
+      $("li.about").animate({opacity:0.6});
+      });
+    
+    $("li.employees").mouseover( function(){
+      $("li.moon_about").hide("slow");
+      $("li.ds_home").hide("slow");
+      $("li.ml_projects").hide("slow");
+      
+      $("li.cloud_employees").show("slow");
+      $("li.employees").animate({opacity:1});
+      });
+    $("li.employees").mouseleave( function(){
+      $("li.cloud_employees").hide("slow");
+      $("li.employees").animate({opacity:0.6});
+      });
+      
+    $("li.home").mouseover( function(){
+      $("li.cloud_employees").hide("slow");
+      $("li.ml_projects").hide("slow");
+      $("li.moon_about").hide("slow");
+      
+      $("li.ds_home").show("slow");
+      $("li.home").animate({opacity:1});
+      });
+    $("li.home").mouseleave( function(){
+      $("li.ds_home").hide("slow");
+      $("li.home").animate({opacity:0.6});
+      });
+    };
+    
+</script>

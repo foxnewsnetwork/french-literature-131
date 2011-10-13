@@ -1,0 +1,15 @@
+<div class="image_list">
+  <ul class="employee_list">
+    <% employees.each do |employee| %>
+      <li class="img_profile">
+        <div class="img_img">
+          <%= link_to image_tag(employee[:img], :size => "150x150", :class => "round") , employee[:url] %>
+        </div>
+        <div class="img_text">
+          <%= employee[:text] %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="shadow" />
