@@ -21,12 +21,12 @@ class PagesController < ApplicationController
     @employees = Array.new
     for i in 0..4
       @projects.push({ 
-        :img => "#{@album}project00#{i}.png" ,
+        :img => "#{@album}Untitled-2.jpg" ,
         :url => "#{@album}project00#{i}.png" ,
         :text => "stuff here"
       })
       @employees.push({ 
-        :img => "#{@album}employee00#{i}.png" ,
+        :img => "#{@album}MahouShoujoonCrack.jpg" ,
         :url => "#{@album}employee00#{i}.png" ,
         :text => "samefag text"
       })

@@ -1,33 +1,53 @@
 <script type="text/javascript">
   $(document).ready( function(){
     Initialize();
-    
-    $("div.about").click({ 
-      // Hide the other divs
-      // Load the about div
-       });
-    $("div.home").click({ 
-      // Hide other divs
-      // Load the home div
-      });
-    $("div.projects").click({ 
-      // Hide other divs
-      // Load the projects div
-      });
-    $("div.employees").click({ 
-      // Hide other divs
-      // Load the projects div
-      });
-      
-    
     });
     
   function Initialize() {
     Home();
+    Navigation();
     };
     
-  function Header(){
-    
+  function Navigation(){
+    $("li.pr").mouseover(function(){
+      $("li.pr").css({"background-color":"#dfd", "color":"#343"});
+      });
+    $("li.pr").click(function(){
+      Projects();
+      });
+    $("li.pr").mouseleave(function(){
+      $("li.pr").css({"background-color":"#efe", "color":"#fff"});
+      });
+      
+    $("li.ab").mouseover(function(){
+      $("li.ab").css({"background-color":"#dfd", "color":"#343"});
+      });
+    $("li.ab").click(function(){
+      About();
+      });
+    $("li.ab").mouseleave(function(){
+      $("li.ab").css({"background-color":"#efe", "color":"#fff"});
+      });
+      
+    $("li.dr").mouseover(function(){
+      $("li.dr").css({"background-color":"#dfd", "color":"#343"});
+      });
+    $("li.dr").click(function(){
+      Employees();
+      });
+    $("li.dr").mouseleave(function(){
+      $("li.dr").css({"background-color":"#efe", "color":"#fff"});
+      });
+      
+    $("li.ho").mouseover(function(){
+      $("li.ho").css({"background-color":"#dfd", "color":"#343"});
+      });
+    $("li.ho").click(function(){
+      Home();
+      });
+    $("li.ho").mouseleave(function(){
+      $("li.ho").css({"background-color":"#efe", "color":"#fff"});
+      });  
     };
     
   function Projects(){
@@ -35,7 +55,27 @@
     $("div.home").hide();
     $("div.employees").hide();
     
+    $("div.projects").show("medium");
     
+    <% for k in 0..projects.count-1 %>
+      <% project = projects[k] %>
+       $("div.img_text_<%= k %>").css({
+         "opacity":"0",
+         "color":"#aaa"
+         });
+    <% end %>
+    
+    <% for j in 0..projects.count-1 %>
+      <% project = projects[j] %>
+      $("div.img_img_<%= j %>").mouseover( function(){
+        $("div.img_img_<%= j %>").css({"opacity":"0.3"});
+        $("div.img_text_<%= j %>").css({"opacity":"1", "color":"#aaa"});
+        });
+      $("div.img_img_<%= j %>").mouseleave( function(){
+        $("div.img_img_<%= j %>").css({"opacity":"1"});
+        $("div.img_text_<%= j %>").css({"opacity":"0"});
+        });
+    <% end %>
     };
     
   function About(){
@@ -43,7 +83,7 @@
     $("div.projects").hide();
     $("div.employees").hide();
     
-    
+    $("div.about").show("medium");
     };
   
   function Employees(){
@@ -51,13 +91,35 @@
     $("div.projects").hide();
     $("div.home").hide();
     
+    $("div.employees").show("medium");
     
+    <% for k in 0..employees.count-1 %>
+      <% employee = employees[k] %>
+       $("div.img_text_<%= k %>").css({
+         "opacity":"0",
+         "color":"#aaa"
+         });
+    <% end %>
+    
+    <% for j in 0..employees.count-1 %>
+      <% employee = employees[j] %>
+      $("div.img_img_<%= j %>").mouseover( function(){
+        $("div.img_img_<%= j %>").css({"opacity":"0.3"});
+        $("div.img_text_<%= j %>").css({"opacity":"1", "color":"#aaa"});
+        });
+      $("div.img_img_<%= j %>").mouseleave( function(){
+        $("div.img_img_<%= j %>").css({"opacity":"1"});
+        $("div.img_text_<%= j %>").css({"opacity":"0"});
+        });
+    <% end %>
     };
     
   function Home(){
     $("div.about").hide();
     $("div.projects").hide();
     $("div.employees").hide();
+    
+    $("div.home").show("medium");
     
     $("li.cloud_employees").hide();
     $("li.ml_projects").hide();
@@ -77,6 +139,9 @@
       $("li.ml_projects").show("slow");
       $("li.projects").animate({opacity:1});
       });
+    $("li.projects").click( function(){
+      Projects();
+      });
     $("li.projects").mouseleave( function(){
       $("li.ml_projects").hide("slow");
       $("li.projects").animate({opacity:0.6});
@@ -89,6 +154,9 @@
       
       $("li.moon_about").show("slow");
       $("li.about").animate({opacity:1});
+      });
+    $("li.about").click( function(){
+      About();
       });
     $("li.about").mouseleave( function(){
       $("li.moon_about").hide("slow");
@@ -103,6 +171,9 @@
       $("li.cloud_employees").show("slow");
       $("li.employees").animate({opacity:1});
       });
+    $("li.employees").click(function(){
+      Employees();
+      });
     $("li.employees").mouseleave( function(){
       $("li.cloud_employees").hide("slow");
       $("li.employees").animate({opacity:0.6});
@@ -115,6 +186,9 @@
       
       $("li.ds_home").show("slow");
       $("li.home").animate({opacity:1});
+      });
+    $("li.home").click( function(){
+      Home();
       });
     $("li.home").mouseleave( function(){
       $("li.ds_home").hide("slow");
