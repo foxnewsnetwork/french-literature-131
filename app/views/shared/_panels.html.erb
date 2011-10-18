@@ -1,0 +1,29 @@
+<ul class="<%= objects.first[:type] %>_list">
+  <% for j in 0..objects.count-1 %>
+  <% object = objects[j] %>
+    <style type="text/css">
+    .<%= object[:type] %>_img_img_<%= j %>{
+      width: 150px;
+      height: 600px;
+      background: url("<%= object[:img] %>") <%= -j*150 %>px 0;
+    }
+
+    .<%= object[:type] %>_img_text_<%= j %>{
+      padding-top: 40px;
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 110%;
+      color: #aaa;
+    }
+    </style>
+    <li class="img_profile round">
+      <div class="<%= object[:type] %>_img_img_<%= j %> round">
+        <div class="<%= object[:type] %>_img_text_<%= j %>" title="Summary">
+          <h3><%= link_to ">>", object[:url] %></h3>
+          <p><h4><%= object[:text] %></h4></p>
+        </div>
+      </div>
+      
+    </li>
+  <% end %>
+</ul>

@@ -1,13 +1,42 @@
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
 <script type="text/javascript">
   $(document).ready( function(){
     Initialize();
+    
     });
     
   function Initialize() {
     Home();
     Navigation();
+		DialogBoxes();
     };
     
+	function DialogBoxes(){
+		<% for j in 0..projects.count-1 %>
+			<% project = projects[j] %>
+			$(".<%= project[:type] %>_img_text_<%= j %>").hide();
+			$(".<%= project[:type] %>_img_img_<%= j %>").click( function(){
+				$(".<%= project[:type] %>_img_text_<%= j %>").dialog({
+					height: 260,
+					modal: true
+					});
+				});
+		<% end %>				
+	<% for j in 0..employees.count-1 %>
+			<% employee = employees[j] %>
+			$(".<%= employee[:type] %>_img_text_<%= j %>").hide();
+			$(".<%= employee[:type] %>_img_img_<%= j %>").click( function(){
+				$(".<%= employee[:type] %>_img_text_<%= j %>").dialog({
+					height: 260,
+					modal: true
+					});
+				});
+		<% end %>
+	};
+
   function Navigation(){
     $("li.pr").mouseover(function(){
       $("li.pr").css({"background-color":"#dfd", "color":"#343"});
@@ -56,23 +85,15 @@
     $("div.employees").hide();
     
     $("div.projects").show("medium");
-    
-    <% for k in 0..projects.count-1 %>
-      <% project = projects[k] %>
-       $("div.img_text_<%= k %>").css({
-         "opacity":"0",
-         "color":"#aaa"
-         });
-    <% end %>
-    
+        
     <% for j in 0..projects.count-1 %>
       <% project = projects[j] %>
-      $("div.img_img_<%= j %>").mouseover( function(){
-        $("div.img_img_<%= j %>").css({"opacity":"0.3"});
+      $("div.<%= project[:type] %>_img_img_<%= j %>").mouseover( function(){
+        $("div.<%= project[:type] %>_img_img_<%= j %>").css({"opacity":"0.3"});
         $("div.img_text_<%= j %>").css({"opacity":"1", "color":"#aaa"});
         });
-      $("div.img_img_<%= j %>").mouseleave( function(){
-        $("div.img_img_<%= j %>").css({"opacity":"1"});
+      $("div.<%= project[:type] %>_img_img_<%= j %>").mouseleave( function(){
+        $("div.<%= project[:type] %>_img_img_<%= j %>").css({"opacity":"1"});
         $("div.img_text_<%= j %>").css({"opacity":"0"});
         });
     <% end %>
@@ -93,22 +114,15 @@
     
     $("div.employees").show("medium");
     
-    <% for k in 0..employees.count-1 %>
-      <% employee = employees[k] %>
-       $("div.img_text_<%= k %>").css({
-         "opacity":"0",
-         "color":"#aaa"
-         });
-    <% end %>
     
     <% for j in 0..employees.count-1 %>
       <% employee = employees[j] %>
-      $("div.img_img_<%= j %>").mouseover( function(){
-        $("div.img_img_<%= j %>").css({"opacity":"0.3"});
+      $("div.<%= employee[:type] %>_img_img_<%= j %>").mouseover( function(){
+        $("div.<%= employee[:type] %>_img_img_<%= j %>").css({"opacity":"0.3"});
         $("div.img_text_<%= j %>").css({"opacity":"1", "color":"#aaa"});
         });
-      $("div.img_img_<%= j %>").mouseleave( function(){
-        $("div.img_img_<%= j %>").css({"opacity":"1"});
+      $("div.<%= employee[:type] %>_img_img_<%= j %>").mouseleave( function(){
+        $("div.<%= employee[:type] %>_img_img_<%= j %>").css({"opacity":"1"});
         $("div.img_text_<%= j %>").css({"opacity":"0"});
         });
     <% end %>

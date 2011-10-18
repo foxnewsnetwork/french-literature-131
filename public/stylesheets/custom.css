@@ -1,8 +1,18 @@
 /* Application body section */
 
 body{
-  background: #b5b5b5;
-  background-image: url('http://i299.photobucket.com/albums/mm281/foxnewsnetwork/bgblackandwhite.png');
+  background-color: #b5b5b5;
+  background-image: url('http://i299.photobucket.com/albums/mm281/foxnewsnetwork/bgblackandwhite.png');	
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+h3 a{
+  color: #630;
+}
+
+h4{
+  color: #530;
 }
 
 /* Page Home */
@@ -127,15 +137,15 @@ nav ul li{
   margin-left: 1px;
   margin-right: 1px;
   border: 1px solid #fff;
-  background-color:#000;
+  background-color:#aac;
 }
 
-.image_list ul.protect_list li.img_profile .img_img .img_text a:{
+.image_list ul.protect_list li.img_profile .img_text a{
   color: #49b9e2;
   font-size: 125%;
 }
 
-.image_list ul.protect_list li.img_profile .img_img .img_text h5{
+.image_list ul.protect_list li.img_profile .img_text h5{
   color: #abbbb8;
   font-size: 120%;
 }
@@ -145,11 +155,11 @@ nav ul li{
 }
 
 /* Pages Employees */
-.image_list ul.employee_list{
+.image_list ul{
   margin-left: 10px;
 }
 
-.image_list ul.employee_list li.img_profile{
+.image_list ul li.img_profile{
   display: inline-block;
   list-style-type: none;
   height: 600px;
